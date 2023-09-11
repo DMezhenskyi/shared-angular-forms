@@ -7,13 +7,14 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   imports: [ReactiveFormsModule],
   template: `
     <img class="logo" src="https://www.decodedfrontend.io/wp-content/uploads/2021/01/logo-01.png">
+    
     <form [formGroup]="form" (ngSubmit)="submit()">
       <div class="form-field">
         <label for="displayName">Display Name</label>
         <input formControlName="displayName" type="text" id="displayName">
       </div>
-      <fieldset formGroupName="address">
-        <legend>Address</legend>
+      <fieldset formGroupName="deliveryAddress">
+        <legend>Delivery Address</legend>
         <div class="form-field">
           <label for="zipCode">Zip Code</label>
           <input formControlName="zipCode" type="text" id="zipCode">
@@ -30,7 +31,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class AppComponent {
   form = new FormGroup({
     displayName: new FormControl(''),
-    address: new FormGroup({
+    deliveryAddress: new FormGroup({
       zipCode: new FormControl(''),
       street: new FormControl('')
     })
@@ -38,6 +39,7 @@ export class AppComponent {
   submit() {
     // do whatever you need with it...
     console.log(this.form.value);
+    this.form.reset();
   }
 
 }
