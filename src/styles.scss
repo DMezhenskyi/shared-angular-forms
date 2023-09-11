@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --border-radius: 10px;
+  --spacing-step: 8px;
+  --color-background: #eceff1;
+  --color-accent-secondary: #ffc15a;
+  --color-accent-secondary-darker: #faa415;
+  --color-text: #263238;
+  --color-text-light: #607d8b;
+}
+
+body, html, p, h1, h2, h3, h4, h5, span {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: 'Poppins';
+  background-color: var(--color-background);
+}
+form {
+  padding: calc(var(--spacing-step) * 3);
+  box-sizing: border-box;
+  border-radius: var(--border-radius);
+  background: var(--color-background);
+  min-width: 395px;
+  width: 100%;
+}
+
+label, input:not([type="checkbox"]), fieldset, button {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+fieldset {
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-text-light);
+  margin-top: var(--spacing-step);
+}
+
+button {
+  margin-top: calc(var(--spacing-step) * 2);
+  background-color: var(--color-accent-secondary);
+  border: var(--color-accent-secondary-darker) 1px solid;
+  color: var(--color-text);
+  font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+  &:active {
+    background-color: var(--color-accent-secondary-darker);
+    border: var(--color-accent-secondary) 1px solid;
+  }
+  &.reset-button {
+    background-color: transparent;
+    border: var(--color-primary) 1px solid;
+  }
+}
+
+input {
+  border: var(--color-text) solid 2px;
+}
+
+legend {
+  font-weight: bold;
+}
+
+input, button {
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 10px 11px;
+}
+.logo {
+  display: block;
+  width: 170px;
+  margin: 20px auto 0px auto;
+}
