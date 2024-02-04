@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AddressGroupComponent } from './address-group/address-group.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, AddressGroupComponent],
   template: `
     <img class="logo" src="https://www.decodedfrontend.io/wp-content/uploads/2021/01/logo-01.png">
     
@@ -13,28 +14,15 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
         <label for="displayName">Display Name</label>
         <input formControlName="displayName" type="text" id="displayName">
       </div>
-      <fieldset formGroupName="deliveryAddress">
-        <legend>Delivery Address</legend>
-        <div class="form-field">
-          <label for="zipCode">Zip Code</label>
-          <input formControlName="zipCode" type="text" id="zipCode">
-        </div>
-        <div class="form-field">
-          <label for="address">Street</label>
-          <input formControlName="street" type="text" id="address">
-        </div>
-      </fieldset>
+      <app-address-group label="Delivery Address" controlKey="deliveryAddress"></app-address-group>
+      <app-address-group label="Billing Address" controlKey="billingAddress"></app-address-group>
       <button>Submit</button>
     </form>
   `
 })
 export class AppComponent {
   form = new FormGroup({
-    displayName: new FormControl(''),
-    deliveryAddress: new FormGroup({
-      zipCode: new FormControl(''),
-      street: new FormControl('')
-    })
+    displayName: new FormControl('')
   });
   submit() {
     // do whatever you need with it...
